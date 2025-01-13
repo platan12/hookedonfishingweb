@@ -1,0 +1,25 @@
+.database-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .items-table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  .items-table th, .items-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .items-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
