@@ -1,0 +1,77 @@
+/* Estilització global per la pàgina */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Contenidor principal de login */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header estilització */
+  .header {
+    background-color: #344e41; /* Verd */
+    height: 20%; /* Una cinquena part de la pàgina */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: white;
+  }
+  
+  .title {
+    font-size: 2.8rem;
+    margin: 0;
+    color: #DAD7CD;
+  }
+  
+  .logo {
+    height: 150%; /* Ajustem la mida del logo */
+    max-height: 150px;
+  }
+
+  .logo2 {
+    height: 200%; /* Ajustem la mida del logo */
+    max-height: 200px;
+  }
+  
+  /* Estilització del formulari */
+  .login-form {
+    flex: 1; /* Ocupa l'espai restant de la pàgina */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .login-form input {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .login-form button {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #A3B18A; /* Verd */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-form button:hover {
+    background-color: #218838; /* Verd més fosc per hover */
+  }
+  
