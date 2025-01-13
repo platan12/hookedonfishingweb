@@ -1,7 +1,15 @@
 import React from 'react';
-import './login.css'; // Fitxer CSS per estilitzar la pàgina
+import { useNavigate } from 'react-router-dom';
+import './login.css';
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    // Aquí podries afegir validacions abans de redirigir
+    navigate('/DatabaseSpot'); // Navega a la pàgina "Dashboard"
+  };
+
   return (
     <div className="login-container">
       <header className="header">
@@ -12,7 +20,7 @@ const Login = () => {
         <img src="/logo.png" alt="Logo" className="logo2" />
         <input type="text" placeholder="Usuari" />
         <input type="password" placeholder="Contrasenya" />
-        <button>Log In</button>
+        <button onClick={handleLogin}>Log In</button>
       </div>
     </div>
   );

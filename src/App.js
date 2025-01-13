@@ -1,13 +1,17 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login';
+import DatabaseSpot from './DatabaseSpot'; // La nova pàgina on vols navegar
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/DatabaseSpot" element={<DatabaseSpot />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
