@@ -74,4 +74,9 @@ body {
   .login-form button:hover {
     background-color: #218838; /* Verd més fosc per hover */
   }
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }
   
