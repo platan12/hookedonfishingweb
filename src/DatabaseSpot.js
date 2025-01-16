@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "./firebaseConfig"; // Importa la configuració Firebase
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { ref, deleteObject } from "firebase/storage";
+import { db, storage } from "./firebaseConfig"; // Importa la configuració Firebase
 import "./DatabaseSpot.css"; // Per estilitzar la taula
 
 const DatabaseSpot = () => {
@@ -26,6 +27,7 @@ const DatabaseSpot = () => {
             author: data.author,
             creationDate: data.creationDate?.toDate().toLocaleDateString(), // Converteix el Timestamp a una data llegible
             region: data.region,
+            images: data.images || [],
           };
         });
         setItems(itemsList);
@@ -36,6 +38,40 @@ const DatabaseSpot = () => {
 
     fetchItems();
   }, []);
+
+  // Funció per eliminar imatges del Storage
+  const deleteImages = async (images) => {
+    const deletePromises = images.map(async (imagePath) => {
+      try {
+        const imageRef = ref(storage, imagePath);
+        await deleteObject(imageRef); // Elimina la imatge del Storage
+      } catch (err) {
+        console.error(`Error eliminant la imatge: ${imagePath}`, err);
+      }
+    });
+    await Promise.all(deletePromises); // Espera que totes les imatges s'eliminin
+  };
+
+  // Funció per eliminar un element de Firestore i les seves imatges associades
+  const handleDelete = async (id, images) => {
+    const confirmDelete = window.confirm("Estàs segur que vols eliminar aquest element?");
+    if (confirmDelete) {
+      try {
+        // Elimina les imatges del Storage
+        await deleteImages(images);
+
+        // Elimina el document de Firestore
+        await deleteDoc(doc(db, "items", id));
+
+        // Actualitza l'estat local
+        setItems(items.filter((item) => item.id !== id));
+      } catch (err) {
+        setError("Error eliminant l'element i/o les seves imatges de la base de dades.");
+        console.error(err);
+      }
+    }
+  };
+
 
   return (
     <div className="database-container">
@@ -57,6 +93,7 @@ const DatabaseSpot = () => {
             <th>Author</th>
             <th>Creation Date</th>
             <th>Region</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -66,6 +103,14 @@ const DatabaseSpot = () => {
               <td>{item.author}</td>
               <td>{item.creationDate}</td>
               <td>{item.region}</td>
+              <td>
+                <button
+                  onClick={() => handleDelete(item.id, item.images)} // Botó d'eliminació
+                  className="delete-button"
+                >
+                  Eliminar
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
