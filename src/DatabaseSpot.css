@@ -1,8 +1,9 @@
+
 .database-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
   .items-table {
     margin: 20px auto;
     border-collapse: collapse;
@@ -22,4 +23,51 @@
   .error-message {
     color: red;
     margin-top: 10px;
+  }
+
+  .header {
+    background-color: #344e41; /* Verd */
+    height: 20%; /* Una cinquena part de la pàgina */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: white;
+  }
+  
+  .header-logo {
+    height: 150px;
+    margin-right: 20px;
+  }
+  
+  .header-title {
+    font-size: 2.8rem;
+    margin-right: 200px;
+    color: #DAD7CD;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .header-button {
+    background-color: #344e41;
+    color: #DAD7CD;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #DAD7CD;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .header-button:hover {
+    background-color: lightgray;
+  }
+  
+  .header-right-button {
+    margin-left: auto;
   }
