@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "./firebaseConfig"; // Importa la configuració Firebase
 import "./DatabaseUser.css"; // Per estilitzar la taula
 
@@ -36,6 +36,18 @@ const DatabaseUser = () => {
     fetchItems();
   }, []);
 
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Estàs segur que vols eliminar aquest element?");
+    if (confirmDelete) {
+      try {
+        await deleteDoc(doc(db, "users", id)); // Elimina el document de Firestore
+        setItems(items.filter((item) => item.id !== id)); // Actualitza l'estat local
+      } catch (err) {
+        setError("Error eliminant l'element de la base de dades.");
+      }
+    }
+  };
+
   return (
     <div className="database-container">
       <header className="header">
@@ -54,6 +66,7 @@ const DatabaseUser = () => {
           <tr>
             <th>Name User</th>
             <th>Email</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -61,6 +74,14 @@ const DatabaseUser = () => {
             <tr key={item.id}>
               <td>{item.userName}</td>
               <td>{item.email}</td>
+              <td>
+                <button
+                  onClick={() => handleDelete(item.id)} // Botó d'eliminació
+                  className="delete-button"
+                >
+                  Eliminar
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
