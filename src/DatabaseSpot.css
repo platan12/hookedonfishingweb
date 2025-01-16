@@ -53,7 +53,18 @@
     justify-content: center;
   }
   
-  .header-button {
+  .Spot-button {
+    background-color: #A3B18A;
+    color: #DAD7CD;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #DAD7CD;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .User-button {
     background-color: #344e41;
     color: #DAD7CD;
     border: none;
@@ -64,7 +75,11 @@
     font-size: 16px;
   }
   
-  .header-button:hover {
+  .Spot-button:hover {
+    background-color: lightgray;
+  }
+
+  .User-button:hover {
     background-color: lightgray;
   }
   

@@ -10,7 +10,7 @@ const Login = () => {
 
   const handleLogin = () => {
     if (username === 'admin' && password === 'admin') {
-      // Si l'usuari i contrasenya són correctes, redirigeix a /dashboard
+      // Si l'usuari i contrasenya són correctes, redirigeix
       navigate('/DatabaseSpot');
     } else {
       // Si són incorrectes, mostra un missatge d'error

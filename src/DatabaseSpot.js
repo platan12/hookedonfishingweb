@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebaseConfig"; // Importa la configuració Firebase
 import "./DatabaseSpot.css"; // Per estilitzar la taula
@@ -6,6 +7,11 @@ import "./DatabaseSpot.css"; // Per estilitzar la taula
 const DatabaseSpot = () => {
   const [items, setItems] = useState([]); // Estat per guardar els elements
   const [error, setError] = useState(null); // Estat per capturar errors
+  const navigate = useNavigate();
+
+  const handleNav = () => {
+    navigate('/DatabaseUser');
+  };
 
   useEffect(() => {
     // Funció per recuperar dades de Firestore
@@ -37,8 +43,8 @@ const DatabaseSpot = () => {
         <img src="/logo.png" alt="Logo" className="header-logo" /> {/* Imatge a l'esquerra */}
         <h1 className="header-title">Hola, Admin</h1> {/* Títol */}
         <div className="header-buttons">
-          <button className="header-button">Spot DB</button>
-          <button className="header-button">User DB</button>
+          <button className="Spot-button">Spot DB</button>
+          <button onClick={handleNav} className="User-button">User DB</button>
         </div>
         <button className="header-button header-right-button">Log Out</button> {/* Botó a la dreta */}
       </header>
