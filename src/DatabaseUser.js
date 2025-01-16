@@ -17,15 +17,14 @@ const DatabaseUser = () => {
     // Funció per recuperar dades de Firestore
     const fetchItems = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "items"));
+        const querySnapshot = await getDocs(collection(db, "users"));
         const itemsList = querySnapshot.docs.map((doc) => {
           const data = doc.data();
           return {
             id: doc.id, // ID del document
-            name: data.name,
-            author: data.author,
-            creationDate: data.creationDate?.toDate().toLocaleDateString(), // Converteix el Timestamp a una data llegible
-            region: data.region,
+            userName: data.userName,
+            email: data.email,
+            
           };
         });
         setItems(itemsList);
@@ -53,19 +52,15 @@ const DatabaseUser = () => {
       <table className="items-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Author</th>
-            <th>Creation Date</th>
-            <th>Region</th>
+            <th>Name User</th>
+            <th>Email</th>
           </tr>
         </thead>
         <tbody>
           {items.map((item) => (
             <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{item.author}</td>
-              <td>{item.creationDate}</td>
-              <td>{item.region}</td>
+              <td>{item.userName}</td>
+              <td>{item.email}</td>
             </tr>
           ))}
         </tbody>
