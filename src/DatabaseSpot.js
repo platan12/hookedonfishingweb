@@ -14,6 +14,10 @@ const DatabaseSpot = () => {
     navigate('/DatabaseUser');
   };
 
+  const handleOut = () => {
+    navigate('/');
+  };
+
   useEffect(() => {
     // Funció per recuperar dades de Firestore
     const fetchItems = async () => {
@@ -82,7 +86,7 @@ const DatabaseSpot = () => {
           <button className="Spot-button">Spot DB</button>
           <button onClick={handleNav} className="User-button">User DB</button>
         </div>
-        <button className="header-button header-right-button">Log Out</button> {/* Botó a la dreta */}
+        <button  onClick={handleOut} className="User-button header-right-button">Log Out</button> {/* Botó a la dreta */}
       </header>
 
       {error && <p className="error-message">{error}</p>} {/* Mostra errors si n'hi ha */}
