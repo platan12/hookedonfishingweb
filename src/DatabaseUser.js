@@ -53,15 +53,15 @@ const DatabaseUser = () => {
   };
 
   return (
-    <div className="database-container">
+    <div className="user-container">
       <header className="header">
         <img src="/logo.png" alt="Logo" className="header-logo" /> {/* Imatge a l'esquerra */}
         <h1 className="header-title">Hola, Admin</h1> {/* Títol */}
         <div className="header-buttons">
-          <button onClick={handleNav} className="Spot-button">Spot DB</button>
-          <button className="User-button">User DB</button>
+          <button onClick={handleNav} className="SpotS-button">Spot DB</button>
+          <button className="UserU-button">User DB</button>
         </div>
-        <button onClick={handleOut} className="Spot-button header-right-button">Log Out</button> {/* Botó a la dreta */}
+        <button onClick={handleOut} className="SpotS-button header-right-button">Log Out</button> {/* Botó a la dreta */}
       </header>
 
       {error && <p className="error-message">{error}</p>} {/* Mostra errors si n'hi ha */}
@@ -87,7 +87,7 @@ const DatabaseUser = () => {
                 </button>
                 <button
                   onClick={() => navigate(`/user-spots/${item.email}`)} // Botó per veure els spots de l'usuari
-                  className="Spot-button"
+                  className="SpotS-button"
                 >
                   Veure Spots
                 </button>
