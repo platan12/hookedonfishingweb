@@ -86,6 +86,9 @@ const DatabaseSpot = () => {
           <button className="Spot-button">Spot DB</button>
           <button onClick={handleNav} className="User-button">User DB</button>
         </div>
+        <button onClick={() => navigate('/AddSpot')} className="User-button header-right-button">
+          AddSpot
+        </button>
         <button  onClick={handleOut} className="User-button header-right-button">Log Out</button> {/* Botó a la dreta */}
       </header>
 

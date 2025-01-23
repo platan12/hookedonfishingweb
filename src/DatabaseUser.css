@@ -4,21 +4,35 @@
     flex-direction: column;
     height: 100vh;
   }
-    .items-table {
-      margin: 20px auto;
-      border-collapse: collapse;
-      width: 80%;
-    }
-    
-    .items-table th, .items-table td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-    }
-    
-    .items-table th {
-      background-color: #f4f4f4;
-    }
+   /* Taula */
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #DAD7CD; /* Fons suau */
+}
+
+.items-table th,
+.items-table td {
+  border: 1px solid #A3B18A; /* Borda de color verd mitjà */
+  padding: 10px;
+  text-align: left;
+  
+}
+
+.items-table th {
+  background-color: #344e41; /* Fons fosc */
+  color: #DAD7CD; /* Text clar */
+  font-weight: bold;
+}
+
+.items-table td {
+  color: #344e41; /* Text fosc */
+}
+
+.items-table tr:nth-child(even) {
+  background-color: #A3B18A; /* Verd clar per a files parells */
+}
     
     .error-message {
       color: red;
