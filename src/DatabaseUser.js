@@ -86,7 +86,7 @@ const DatabaseUser = () => {
                   Eliminar
                 </button>
                 <button
-                  onClick={() => navigate(`/user-spots/${item.email}`)} // Botó per veure els spots de l'usuari
+                  onClick={() => navigate(`/user-spots/${item.userName}`)} // Botó per veure els spots de l'usuari
                   className="SpotS-button"
                 >
                   Veure Spots

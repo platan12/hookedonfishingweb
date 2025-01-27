@@ -14,10 +14,10 @@ const App = () => {
         <Route path="/DatabaseSpot" element={<DatabaseSpot />} />
         <Route path="/DatabaseUser" element={<DatabaseUser />} />
         <Route path="/AddSpot" element={<AddSpot />} />
-        <Route path="/user-spots/:email" element={<UserSpots />} />
+        <Route path="/user-spots/:userName" element={<UserSpots />} />
       </Routes>
     </Router>
-  );
+  ); 
 };
 
 export default App;

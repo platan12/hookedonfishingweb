@@ -5,7 +5,7 @@ import { db } from "./firebaseConfig";
 import "./UserSpots.css"; // Per estilitzar la taula
 
 const UserSpots = () => {
-  const { email } = useParams(); // Obté el correu de l'usuari de la ruta
+  const { userName } = useParams(); 
   const [spots, setSpots] = useState([]); // Estat per guardar els spots
   const [error, setError] = useState(null); // Estat per capturar errors
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const UserSpots = () => {
               images: data.images || [],
             };
           })
-          .filter((spot) => spot.author === email); // Filtra els spots per autor
+          .filter((spot) => spot.author === userName); // Filtra els spots per autor
         setSpots(userSpots);
       } catch (err) {
         setError("Error carregant els spots de l'usuari.");
@@ -34,12 +34,12 @@ const UserSpots = () => {
     };
 
     fetchUserSpots();
-  }, [email]);
+  }, [userName]);
 
   return (
     <div className="user-spots-container">
       <header className="header">
-        <h1 className="header-title">Spots de l'usuari: {email}</h1>
+        <h1 className="header-title">Spots de l'usuari: {userName}</h1>
         <button onClick={() => navigate("/DatabaseUser")} className="back-button">
           Tornar a Users DB
         </button>

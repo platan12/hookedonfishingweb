@@ -39,6 +39,7 @@
     color: #344e41;
     cursor: pointer;
     font-weight: bold;
+    margin-bottom: 20px;
   }
   
   button:hover {

@@ -106,7 +106,11 @@ const AddSpot = () => {
         </label>
         <button type="submit">Afegir Entrada</button>
       </form>
+      <button onClick={() => navigate("/DatabaseSpot")} className="back-button">
+          Tornar a Spots DB
+        </button>
     </div>
+    
   );
 };
 
